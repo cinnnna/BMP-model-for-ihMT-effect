@@ -32,7 +32,7 @@ for idx = 1:length(B1_powers)
     B1_max = B1_powers(idx);
     
     % Generate pulse
-    pulse_shape = te_gen_MB_pulse(pulse_duration, npoints, delta, nband, shape);
+    pulse_shape = gen_pulse(pulse_duration, npoints, delta, nband, shape);
     b1_band = B1_max * pulse_shape(:);
     
     % Track evolution
@@ -45,7 +45,7 @@ for idx = 1:length(B1_powers)
             n_current = round(sample_times(i)/dt);
             if n_current > 0
                 b1_truncated = b1_band(1:n_current);
-                Mz_evolution(i) = te_new_Dualcase_ssSPGR_ihMT_integrate(b1_truncated, B1_max, dt, delta, tissuepars, nband);
+                Mz_evolution(i) = BMP_integrate(b1_truncated, B1_max, dt, delta, tissuepars, nband);
             end
         end
     end

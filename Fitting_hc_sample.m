@@ -233,6 +233,6 @@ function sim_data = simulate_dataset(params, offset_vec, pulse_duration, ...
         b1_band = B1_max * pulse_shape(:);
         
         % Simulate
-        sim_data(k) = ihMT_integrate(b1_band, B1_max, dt, delta, tissuepars, nband);
+        sim_data(k) = BMP_integrate(b1_band, B1_max, dt, delta, tissuepars, nband);
     end
 end

@@ -35,7 +35,7 @@ for k = 1:length(offset_vec)
     b1_band = B1_max * pulse_shape(:); % N×1, µT
 
     % propagate once through Bloch-McConnell
-    Mz_vec(k) = ihMT_integrate(b1_band, B1_max, dt, delta, tissuepars, nband);
+    Mz_vec(k) = BMP_integrate(b1_band, B1_max, dt, delta, tissuepars, nband);
 end
 
 
